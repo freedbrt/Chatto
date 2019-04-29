@@ -162,10 +162,16 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.autoresizingMask = []
         self.view.addSubview(collectionView)
+        if #available(iOS 11.0, *) {
+            let guide = self.view.safeAreaLayoutGuide
+            collectionView.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        } else {
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: collectionView, attribute: .leading, multiplier: 1, constant: 0))
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: collectionView, attribute: .trailing, multiplier: 1, constant: 0))
+        }
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: collectionView, attribute: .top, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: collectionView, attribute: .leading, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: collectionView, attribute: .bottom, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: collectionView, attribute: .trailing, multiplier: 1, constant: 0))
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.chatto_setContentInsetAdjustment(enabled: false, in: self)
@@ -189,8 +195,14 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
         self.inputBarContainer.backgroundColor = .white
         self.view.addSubview(self.inputBarContainer)
         self.view.addConstraint(NSLayoutConstraint(item: self.inputBarContainer, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: self.topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .leading, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .trailing, multiplier: 1, constant: 0))
+        if #available(iOS 11.0, *) {
+            let guide = self.view.safeAreaLayoutGuide
+            self.inputBarContainer.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+            self.inputBarContainer.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        }  else {
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .leading, multiplier: 1, constant: 0))
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal,   toItem: self.inputBarContainer, attribute: .trailing, multiplier: 1, constant: 0))
+        }
         self.inputContainerBottomConstraint = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .bottom, multiplier: 1, constant: 0)
         self.view.addConstraint(self.inputContainerBottomConstraint)
     }
@@ -211,8 +223,14 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
         self.inputContentContainer.backgroundColor = .white
         self.view.addSubview(self.inputContentContainer)
         self.view.addConstraint(NSLayoutConstraint(item: self.inputContentContainer, attribute: .top, relatedBy: .equal, toItem: self.inputBarContainer, attribute: .bottom, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .leading, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .trailing, multiplier: 1, constant: 0))
+        if #available(iOS 11.0, *) {
+            let guide = self.view.safeAreaLayoutGuide
+            self.inputContentContainer.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+            self.inputContentContainer.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+        } else {
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .leading, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .leading, multiplier: 1, constant: 0))
+            self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .trailing, multiplier: 1, constant: 0))
+        }
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: self.inputContentContainer, attribute: .bottom, multiplier: 1, constant: 0))
     }
 
@@ -270,6 +288,8 @@ open class BaseChatViewController: UIViewController, UICollectionViewDataSource,
             self.isFirstLayout = false
             self.setupInputContainerBottomConstraint()
         }
+        
+        self.collectionView?.collectionViewLayout.invalidateLayout()
     }
 
     public var allContentFits: Bool {

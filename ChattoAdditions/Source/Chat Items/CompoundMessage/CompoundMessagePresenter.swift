@@ -38,6 +38,8 @@ public final class CompoundMessagePresenter<ViewModelBuilderT, InteractionHandle
     private let contentFactories: [AnyMessageContentFactory<ModelT>]
     private lazy var layoutProvider: CompoundBubbleLayoutProvider = self.makeLayoutProvider()
     private let cache: Cache<CompoundBubbleLayoutProvider.Configuration, CompoundBubbleLayoutProvider>
+    private let accessibilityIdentifier: String?
+    private let menuPresenter: ChatItemMenuPresenterProtocol?
 
     public init(
         messageModel: ModelT,
@@ -47,11 +49,15 @@ public final class CompoundMessagePresenter<ViewModelBuilderT, InteractionHandle
         sizingCell: CompoundMessageCollectionViewCell<ModelT>,
         baseCellStyle: BaseMessageCollectionViewCellStyleProtocol,
         compoundCellStyle: CompoundBubbleViewStyleProtocol,
-        cache: Cache<CompoundBubbleLayoutProvider.Configuration, CompoundBubbleLayoutProvider>
+        cache: Cache<CompoundBubbleLayoutProvider.Configuration, CompoundBubbleLayoutProvider>,
+        accessibilityIdentifier: String?,
+        menuPresenter: ChatItemMenuPresenterProtocol?
     ) {
         self.compoundCellStyle = compoundCellStyle
         self.contentFactories = contentFactories.filter { $0.canCreateMessageModule(forModel: messageModel) }
         self.cache = cache
+        self.accessibilityIdentifier = accessibilityIdentifier
+        self.menuPresenter = menuPresenter
         super.init(
             messageModel: messageModel,
             viewModelBuilder: viewModelBuilder,
@@ -102,6 +108,7 @@ public final class CompoundMessagePresenter<ViewModelBuilderT, InteractionHandle
             bubbleView.style = sSelf.compoundCellStyle
             bubbleView.decoratedContentViews = modules.map { .init(module: $0) }
             bubbleView.layoutProvider = sSelf.layoutProvider
+            bubbleView.accessibilityIdentifier = sSelf.accessibilityIdentifier
         }
     }
 
@@ -120,6 +127,20 @@ public final class CompoundMessagePresenter<ViewModelBuilderT, InteractionHandle
             return provider
         }
         return provider
+    }
+
+    // MARK: - ChatItemMenuPresenterProtocol
+
+    public override func canShowMenu() -> Bool {
+        return self.menuPresenter?.shouldShowMenu() ?? false
+    }
+
+    public override func canPerformMenuControllerAction(_ action: Selector) -> Bool {
+        return self.menuPresenter?.canPerformMenuControllerAction(action) ?? false
+    }
+
+    public override func performMenuControllerAction(_ action: Selector) {
+        self.menuPresenter?.performMenuControllerAction(action)
     }
 }
 

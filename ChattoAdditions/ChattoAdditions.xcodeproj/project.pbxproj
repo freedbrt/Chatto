@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B44651620347C11001ED5F1 /* DeviceImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B44651420347C11001ED5F1 /* DeviceImagePicker.swift */; };
 		2645F90D2209C11C004CB829 /* HashableRepresentible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2645F90C2209C11C004CB829 /* HashableRepresentible.swift */; };
+		265E22EB2256398E005330E4 /* PasteActionInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E22EA2256398E005330E4 /* PasteActionInterceptor.swift */; };
 		268CD56221F9F92C00DEE2C2 /* CompoundMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CD55F21F9F92B00DEE2C2 /* CompoundMessageCollectionViewCell.swift */; };
 		268CD56321F9F92C00DEE2C2 /* CompoundBubbleViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CD56021F9F92C00DEE2C2 /* CompoundBubbleViewStyle.swift */; };
 		268CD56421F9F92C00DEE2C2 /* CompoundBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CD56121F9F92C00DEE2C2 /* CompoundBubbleView.swift */; };
@@ -18,6 +19,7 @@
 		268CD57C22034FDB00DEE2C2 /* MessageManualLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CD57B22034FDB00DEE2C2 /* MessageManualLayoutProvider.swift */; };
 		268CD5802204876B00DEE2C2 /* CompoundBubbleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CD57F2204876B00DEE2C2 /* CompoundBubbleLayout.swift */; };
 		26D07FA4220791AE007C1534 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D07FA3220791AE007C1534 /* Cache.swift */; };
+		26DA3358226F140500EF38A6 /* TextMessageMenuItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA3357226F140500EF38A6 /* TextMessageMenuItemPresenter.swift */; };
 		3907DBAF27F9A201978EDDC1 /* BaseMessageCollectionViewCellDefaultStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907D74597451AA0F6DAE924 /* BaseMessageCollectionViewCellDefaultStyle.swift */; };
 		55127638218C9FF900731463 /* ScreenMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55127637218C9FF800731463 /* ScreenMetric.swift */; };
 		55ABA5541FC739C300923302 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55ABA5531FC739C300923302 /* Alignment.swift */; };
@@ -132,6 +134,7 @@
 /* Begin PBXFileReference section */
 		0B44651420347C11001ED5F1 /* DeviceImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceImagePicker.swift; sourceTree = "<group>"; };
 		2645F90C2209C11C004CB829 /* HashableRepresentible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableRepresentible.swift; sourceTree = "<group>"; };
+		265E22EA2256398E005330E4 /* PasteActionInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteActionInterceptor.swift; sourceTree = "<group>"; };
 		268CD55F21F9F92B00DEE2C2 /* CompoundMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundMessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		268CD56021F9F92C00DEE2C2 /* CompoundBubbleViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundBubbleViewStyle.swift; sourceTree = "<group>"; };
 		268CD56121F9F92C00DEE2C2 /* CompoundBubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundBubbleView.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		268CD57B22034FDB00DEE2C2 /* MessageManualLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManualLayoutProvider.swift; sourceTree = "<group>"; };
 		268CD57F2204876B00DEE2C2 /* CompoundBubbleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundBubbleLayout.swift; sourceTree = "<group>"; };
 		26D07FA3220791AE007C1534 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		26DA3357226F140500EF38A6 /* TextMessageMenuItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageMenuItemPresenter.swift; sourceTree = "<group>"; };
 		3907D74597451AA0F6DAE924 /* BaseMessageCollectionViewCellDefaultStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageCollectionViewCellDefaultStyle.swift; sourceTree = "<group>"; };
 		55127637218C9FF800731463 /* ScreenMetric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenMetric.swift; sourceTree = "<group>"; };
 		55ABA5531FC739C300923302 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 			children = (
 				C3C0CBEE1BFE496A0052747C /* TextMessageModel.swift */,
 				C3C0CBEF1BFE496A0052747C /* TextMessagePresenter.swift */,
+				26DA3357226F140500EF38A6 /* TextMessageMenuItemPresenter.swift */,
 				C3C0CBF01BFE496A0052747C /* TextMessagePresenterBuilder.swift */,
 				C3C0CBF11BFE496A0052747C /* TextMessageViewModel.swift */,
 				C3C0CBF21BFE496A0052747C /* Views */,
@@ -471,6 +476,7 @@
 				C3C0CC071BFE496A0052747C /* ChatInputBarPresenter.swift */,
 				C3C0CC081BFE496A0052747C /* ChatInputItem.swift */,
 				C3C0CC091BFE496A0052747C /* ChatInputItemView.swift */,
+				265E22EA2256398E005330E4 /* PasteActionInterceptor.swift */,
 				C3C0CC0A1BFE496A0052747C /* ExpandableTextView.swift */,
 				C3C0CC0B1BFE496A0052747C /* HorizontalStackScrollView.swift */,
 				C3C0CC0C1BFE496A0052747C /* Photos */,
@@ -807,6 +813,7 @@
 				55ABA5711FC74DB400923302 /* UIView+Additions.swift in Sources */,
 				268CD57C22034FDB00DEE2C2 /* MessageManualLayoutProvider.swift in Sources */,
 				268CD56821FA29F300DEE2C2 /* CompoundMessagePresenterBuilder.swift in Sources */,
+				26DA3358226F140500EF38A6 /* TextMessageMenuItemPresenter.swift in Sources */,
 				C3C0CC551BFE496A0052747C /* ExpandableTextView.swift in Sources */,
 				C33DEA451D23F825002AAD26 /* LiveCameraCellPresenter.swift in Sources */,
 				C3C0CC6B1BFE496A0052747C /* CircleProgressView.m in Sources */,
@@ -820,6 +827,7 @@
 				CDC610041FD80BB900C2588E /* PhotosInputPlaceholderCellProvider.swift in Sources */,
 				C3C0CC671BFE496A0052747C /* CircleIconView.m in Sources */,
 				C3C0CC301BFE496A0052747C /* ViewDefinitions.swift in Sources */,
+				265E22EB2256398E005330E4 /* PasteActionInterceptor.swift in Sources */,
 				C3C0CC531BFE496A0052747C /* ChatInputItem.swift in Sources */,
 				C3C0CC421BFE496A0052747C /* TextMessageCollectionViewCell.swift in Sources */,
 				0B44651620347C11001ED5F1 /* DeviceImagePicker.swift in Sources */,

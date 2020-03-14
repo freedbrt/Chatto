@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "Chatto",
-    // platforms: [.iOS("9.0")],
+    platforms: [.iOS("13.0")],
     products: [
         .library(name: "Chatto", targets: ["Chatto"]),
         .library(name: "ChattoAdditions", targets: ["ChattoAdditions"]),

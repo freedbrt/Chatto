@@ -23,6 +23,7 @@
  */
 
 import Chatto
+import UIKit
 import Foundation
 
 @objc
